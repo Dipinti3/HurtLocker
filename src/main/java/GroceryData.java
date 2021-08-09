@@ -55,6 +55,14 @@ public class GroceryData {
         while(matcher.find()){name=matcher.replaceAll("Cookies");}
         matcher.reset();
 
+        matcher.usePattern(Pattern.compile("apples",Pattern.CASE_INSENSITIVE));
+        while(matcher.find()){name=matcher.replaceAll("Apples");}
+        matcher.reset();
+
+        matcher.usePattern(Pattern.compile("bread",Pattern.CASE_INSENSITIVE));
+        while(matcher.find()){name=matcher.replaceAll("Bread");}
+        matcher.reset();
+
         matcher.usePattern(Pattern.compile("milk",Pattern.CASE_INSENSITIVE));
         while(matcher.find()){name=matcher.replaceAll("Milk");}
         return name;
