@@ -68,4 +68,32 @@ public class GroceryList {
         }
         return sb.toString();
     }
+
+    public void printItems(){
+        String milk=countPriceForEachItem("Milk");
+        String bread=countPriceForEachItem("Bread");
+        String cookie=countPriceForEachItem("Cookies");
+        String apple=countPriceForEachItem("Apples");
+        Integer[] countItems=countItem();
+
+        System.out.printf(
+                                "name:    Milk \t\t seen: %d times\n" +
+                                "============= \t \t =============\n" +
+                                "%s\n"+
+                                "name:    Bread \t\t seen: %d times\n" +
+                                "============= \t \t =============\n" +
+                                "%s\n"+
+                                "name:    Cookies\t\tseen: %d times\n"+
+                                "%s\n"+
+                                "name:    Apples\t\tseen:  %d times\n"+
+                                "%s\n"+
+                                "Errors         \t\tseen: %d times"
+                ,countItems[0],milk
+                ,countItems[1],bread
+                ,countItems[2],cookie
+                ,countItems[3],apple
+                ,countItems[4],exceptions);
+    }
+
+
 }
