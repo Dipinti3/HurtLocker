@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class GroceryList {
     private ArrayList<GroceryData> groceryList;
@@ -28,5 +29,43 @@ public class GroceryList {
                 countItems[3]++;
         }
         return countItems;
+    }
+
+    public void incrementExceptions(){
+        exceptions++;
+    }
+
+    public void addItem(GroceryData groceryData){
+        groceryList.add(groceryData);
+    }
+
+    public ArrayList createPriceList(String data){
+        ArrayList<String>priceList=new ArrayList<String>();
+        for (int i = 0; i <groceryList.size(); i++) {
+             if(groceryList.get(i).getName().equals(data))
+                 priceList.add(groceryList.get(i).getPrice());
+        }
+        return priceList;
+    }
+
+    public String countPriceForEachItem(String data){
+        int count=1;
+        ArrayList<String>priceList=createPriceList(data);
+        StringBuilder sb=new StringBuilder();
+        Collections.sort(priceList);
+        for (int i = 0; i < priceList.size(); i++) {
+             if((priceList.get(i-1).equals(priceList.get(i))) && (i!=priceList.size()-1))
+                 count++;
+             else if(i!=priceList.size()-1){
+                 sb.append("Price: "+priceList.get(i-1)+"\tseen: "+count+" times\n");
+                 count=1;
+             }
+             else{
+                 count++;
+                 sb.append("Price: "+priceList.get(i)+"\tseen: "+count+" times\n");
+                 count=1;
+             }
+        }
+        return sb.toString();
     }
 }
