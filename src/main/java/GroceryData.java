@@ -50,7 +50,7 @@ public class GroceryData {
     }
 
     public String groceryNamesList(String name){
-        Pattern pattern=Pattern.compile("c[oo?i]kies]",Pattern.CASE_INSENSITIVE);
+        Pattern pattern=Pattern.compile("c[?ioo]kies]",Pattern.CASE_INSENSITIVE);
         Matcher matcher=pattern.matcher(name);
         while(matcher.find()){name=matcher.replaceAll("Cookies");}
         matcher.reset();
