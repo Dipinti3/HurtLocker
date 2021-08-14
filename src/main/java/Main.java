@@ -11,7 +11,10 @@ public class Main {
 
     public static void main(String[] args) throws Exception{
         String output = (new Main()).readRawDataToString();
-        System.out.println(output);
+        MyParser mp=new MyParser(output);
+        mp.createHumanReadableItems(mp.parseRawData());
+        GroceryList g=GroceryList.getInstance();
+        g.printItems();
 
     }
 }

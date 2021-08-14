@@ -53,16 +53,16 @@ public class GroceryList {
         ArrayList<String>priceList=createPriceList(data);
         StringBuilder sb=new StringBuilder();
         Collections.sort(priceList);
-        for (int i = 0; i < priceList.size(); i++) {
+        for (int i = 1; i < priceList.size(); i++) {
              if((priceList.get(i-1).equals(priceList.get(i))) && (i!=priceList.size()-1))
                  count++;
              else if(i!=priceList.size()-1){
-                 sb.append("Price: "+priceList.get(i-1)+"\tseen: "+count+" times\n");
+                 sb.append("Price: "+priceList.get(i-1)+"\t\tseen: "+count+" times\n");
                  count=1;
              }
              else{
                  count++;
-                 sb.append("Price: "+priceList.get(i)+"\tseen: "+count+" times\n");
+                 sb.append("Price: "+priceList.get(i)+"\t\tseen: "+count+" times\n");
                  count=1;
              }
         }
@@ -77,22 +77,22 @@ public class GroceryList {
         Integer[] countItems=countItem();
 
         System.out.printf(
-                                "name:    Milk \t\t seen: %d times\n" +
+                                "name:Milk \t\t seen: %d times\n" +
                                 "============= \t \t =============\n" +
                                 "%s\n"+
-                                "name:    Bread \t\t seen: %d times\n" +
+                                "name:Bread \t\t seen: %d times\n" +
                                 "============= \t \t =============\n" +
                                 "%s\n"+
-                                "name:    Cookies\t\tseen: %d times\n"+
+                                "name:Cookies\tseen: %d times\n"+
                                 "%s\n"+
-                                "name:    Apples\t\tseen:  %d times\n"+
+                                "name:Apples\t\tseen:  %d times\n"+
                                 "%s\n"+
-                                "Errors         \t\tseen: %d times"
+                                "Errors         \tseen: %d times"
                 ,countItems[0],milk
                 ,countItems[1],bread
                 ,countItems[2],cookie
                 ,countItems[3],apple
-                ,countItems[4],exceptions);
+                ,exceptions);
     }
 
 
